@@ -1,0 +1,242 @@
+/* Identidade visual das páginas públicas de Minha Pauta.
+   Mesma lógica do app: preto e branco com um acento, tipografia do
+   sistema, e tudo legível no claro e no escuro. */
+
+:root {
+  --fundo: #ffffff;
+  --superficie: #f7f7f8;
+  --borda: #e4e4e7;
+  --texto: #18181b;
+  --texto-suave: #52525b;
+  --acento: #4f46e5;
+  --aviso-fundo: #fef3c7;
+  --aviso-borda: #fcd34d;
+  --aviso-texto: #713f12;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0a0a0b;
+    --superficie: #141416;
+    --borda: #27272a;
+    --texto: #fafafa;
+    --texto-suave: #a1a1aa;
+    --acento: #818cf8;
+    --aviso-fundo: #2a2113;
+    --aviso-borda: #5a4620;
+    --aviso-texto: #fde68a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 20px;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pagina {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-block: 48px 80px;
+}
+
+header.marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 28px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.marca .simbolo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 22px;
+}
+
+.marca .simbolo span {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--texto);
+  opacity: 0.25;
+}
+
+.marca .simbolo span.ativa {
+  opacity: 1;
+  background: var(--acento);
+}
+
+.marca .nome {
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  margin: 40px 0 12px;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 26px 0 8px;
+}
+
+p,
+li {
+  color: var(--texto-suave);
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+strong {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+a {
+  color: var(--acento);
+}
+
+.data {
+  font-size: 14px;
+  color: var(--texto-suave);
+  margin-bottom: 36px;
+}
+
+.cartao {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin: 24px 0;
+}
+
+.cartao p:last-child,
+.cartao ul:last-child {
+  margin-bottom: 0;
+}
+
+.cartao p:first-child,
+.cartao h3:first-child {
+  margin-top: 0;
+}
+
+.aviso {
+  background: var(--aviso-fundo);
+  border: 1px solid var(--aviso-borda);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+
+.aviso p {
+  color: var(--aviso-texto);
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+.rolagem {
+  overflow-x: auto;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--borda);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  color: var(--texto);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+td {
+  color: var(--texto-suave);
+}
+
+ol.passos {
+  counter-reset: passo;
+  list-style: none;
+  padding-left: 0;
+}
+
+ol.passos li {
+  counter-increment: passo;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 14px;
+}
+
+ol.passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--texto);
+  color: var(--fundo);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--borda);
+  font-size: 14px;
+  color: var(--texto-suave);
+}
+
+footer a {
+  margin-right: 16px;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  h1 {
+    font-size: 25px;
+  }
+  .pagina {
+    padding-block: 32px 60px;
+  }
+}
